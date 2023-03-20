@@ -16,7 +16,7 @@ public class FadeAnimation : BaseAnimation
             _defaultOpacity = page.Opacity;
             page.Opacity = 0;
         }
-        else if (content != null)
+        else if (content is not null)
         {
             _defaultOpacity = content.Opacity;
             content.Opacity = 0;
@@ -25,7 +25,7 @@ public class FadeAnimation : BaseAnimation
 
     public override void Disposing(View content, PopupPage page)
     {
-        if (HasBackgroundAnimation || content != null)
+        if (HasBackgroundAnimation || content is not null)
         {
             page.Opacity = _defaultOpacity;
         }
@@ -37,7 +37,7 @@ public class FadeAnimation : BaseAnimation
         {
             return page.FadeTo(1, DurationIn, EasingIn);
         }
-        if (content != null)
+        if (content is not null)
         {
             return content.FadeTo(1, DurationIn, EasingIn);
         }
@@ -55,7 +55,7 @@ public class FadeAnimation : BaseAnimation
         {
             return page.FadeTo(0, DurationOut, EasingOut);
         }
-        if (content != null)
+        if (content is not null)
         {
             return content.FadeTo(0, DurationOut, EasingOut);
         }

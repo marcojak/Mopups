@@ -10,7 +10,7 @@ public class EasingTypeConverter : TypeConverter
 {
     public override object? ConvertFrom(ITypeDescriptorContext? context, CultureInfo? culture, object value)
     {
-        if (value != null)
+        if (value is not null)
         {
             var fieldInfo = typeof(Easing).GetRuntimeFields()?.FirstOrDefault(fi =>
             {
@@ -19,11 +19,11 @@ public class EasingTypeConverter : TypeConverter
 
                 return false;
             });
-            if (fieldInfo != null)
+            if (fieldInfo is not null)
             {
                 var fieldValue = fieldInfo.GetValue(null);
 
-                if (fieldValue != null)
+                if (fieldValue is not null)
                     return (Easing)fieldValue;
             }
         }

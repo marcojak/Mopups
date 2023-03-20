@@ -1,10 +1,11 @@
 ﻿
-using System;
+using AsyncAwaitBestPractices;
 using Microsoft.Maui.Platform;
 using Mopups.Interfaces;
 using Mopups.Pages;
 using Mopups.Platforms.Windows;
 using Mopups.Services;
+using System.Diagnostics;
 
 namespace Mopups.Windows.Implementation
 {
@@ -21,6 +22,8 @@ namespace Mopups.Windows.Implementation
         //public bool IsInitialized => Popup.IsInitialized;
 
         public bool IsSystemAnimationEnabled => true;
+
+        int numInstances;
 
         public PopupPlatformWindows()
         {
@@ -63,6 +66,11 @@ namespace Mopups.Windows.Implementation
             // Then you can use contructor resolution instead of singletons
             // But I figured we could do that in a later PR and just work on windows here
 
+            while (!Application.Current.MainPage.IsLoaded)
+            {
+                await Task.Delay(5);
+            }
+
             var renderer = (PopupPageRenderer)page.ToPlatform(Application.Current.MainPage.Handler.MauiContext);
 
             renderer.Prepare(popup);
@@ -76,18 +84,28 @@ namespace Mopups.Windows.Implementation
             popup.IsOpen = true;
             page.ForceLayout();
 
+            numInstances++;
+
             await Task.Delay(5);
         }
 
         public async Task RemoveAsync(PopupPage page)
         {
-            if (page == null)
+            if (page is null)
                 throw new Exception("Popup page is null");
+
+            if (numInstances<=0)
+            {
+                Debug.WriteLine("******************Asked to remove but better to stop...");
+                return;
+            }
+
+            Debug.WriteLine("******************RemoveAsync");
 
             var renderer = (PopupPageRenderer)page.ToPlatform(Application.Current.MainPage.Handler.MauiContext);
             var popup = renderer.Container;
 
-            if (popup != null)
+            if (popup is not null)
             {
                 renderer.Destroy();
 
@@ -96,6 +114,8 @@ namespace Mopups.Windows.Implementation
                 popup.Child = null;
                 popup.IsOpen = false;
             }
+
+            numInstances--;
 
             await Task.Delay(5);
         }

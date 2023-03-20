@@ -99,7 +99,7 @@ public class PopupNavigation : IPopupNavigation
 
     public Task RemovePageAsync(PopupPage page, bool animate = true)
     {
-        if (page == null)
+        if (page is null)
             throw new InvalidOperationException("Page can not be null");
 
         if (!_popupStack.Contains(page))

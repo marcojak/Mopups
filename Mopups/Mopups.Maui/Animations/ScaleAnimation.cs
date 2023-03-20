@@ -36,7 +36,7 @@ public class ScaleAnimation : FadeAnimation
 
         HidePage(page);
 
-        if (content == null) return;
+        if (content is null) return;
 
         UpdateDefaultProperties(content);
 
@@ -49,7 +49,7 @@ public class ScaleAnimation : FadeAnimation
 
         ShowPage(page);
 
-        if (content == null) return;
+        if (content is null) return;
 
         content.Scale = _defaultScale;
         content.Opacity = _defaultOpacity;
@@ -63,7 +63,7 @@ public class ScaleAnimation : FadeAnimation
 
         taskList.Add(base.Appearing(content, page));
 
-        if (content != null)
+        if (content is not null)
         {
             var topOffset = GetTopOffset(content, page) * ScaleIn;
             var leftOffset = GetLeftOffset(content, page) * ScaleIn;
@@ -103,7 +103,7 @@ public class ScaleAnimation : FadeAnimation
 
         taskList.Add(base.Disappearing(content, page));
 
-        if (content != null)
+        if (content is not null)
         {
             UpdateDefaultProperties(content);
 

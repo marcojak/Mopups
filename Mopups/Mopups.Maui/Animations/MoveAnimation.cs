@@ -31,7 +31,7 @@ public class MoveAnimation : FadeBackgroundAnimation
 
         HidePage(page);
 
-        if (content == null) return;
+        if (content is null) return;
 
         UpdateDefaultTranslations(content);
     }
@@ -42,7 +42,7 @@ public class MoveAnimation : FadeBackgroundAnimation
 
         ShowPage(page);
 
-        if (content == null) return;
+        if (content is null) return;
 
         content.TranslationX = _defaultTranslationX;
         content.TranslationY = _defaultTranslationY;
@@ -55,7 +55,7 @@ public class MoveAnimation : FadeBackgroundAnimation
             base.Appearing(content, page)
         };
 
-        if (content != null)
+        if (content is not null)
         {
             var topOffset = GetTopOffset(content, page);
             var leftOffset = GetLeftOffset(content, page);
@@ -92,7 +92,7 @@ public class MoveAnimation : FadeBackgroundAnimation
             base.Disappearing(content, page)
         };
 
-        if (content != null)
+        if (content is not null)
         {
             UpdateDefaultTranslations(content);
 

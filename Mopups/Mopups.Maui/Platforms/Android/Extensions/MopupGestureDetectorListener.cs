@@ -8,7 +8,7 @@ internal class MopupGestureDetectorListener : GestureDetector.SimpleOnGestureLis
 
     public override bool OnSingleTapUp(MotionEvent? e)
     {
-        if (e != null) Clicked?.Invoke(this, e);
+        if (e is not null) Clicked?.Invoke(this, e);
 
         return false;
     }

@@ -50,7 +50,7 @@ internal class MacOSMopups : IPopupPlatform
         window.BackgroundColor = UIColor.Clear;
         window.RootViewController = new PopupPageRenderer(handler);
 
-        if (window.RootViewController.View != null)
+        if (window.RootViewController.View is not null)
             window.RootViewController.View.BackgroundColor = UIColor.Clear;
 
         window.WindowLevel = UIWindowLevel.Normal;
@@ -80,7 +80,7 @@ internal class MacOSMopups : IPopupPlatform
 
     public async Task RemoveAsync(PopupPage page)
     {
-        if (page == null)
+        if (page is null)
             throw new Exception("Popup page is null");
 
         var handler = page.Handler as PopupPageHandler;
@@ -95,11 +95,11 @@ internal class MacOSMopups : IPopupPlatform
             var window = viewController.View?.Window;
             page.Parent = null;
 
-            if (window != null)
+            if (window is not null)
             {
                 var rvc = window.RootViewController;
 
-                if (rvc != null)
+                if (rvc is not null)
                 {
                     await rvc.DismissViewControllerAsync(false);
                     DisposeModelAndChildrenHandlers(page);

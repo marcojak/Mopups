@@ -56,7 +56,7 @@ public class AndroidMopups : IPopupPlatform
     {
         var renderer = IPopupPlatform.GetOrCreateHandler<PopupPageHandler>(page);
 
-        if (renderer != null)
+        if (renderer is not null)
         {
             HandleAccessibility(false);
 
@@ -112,7 +112,7 @@ public class AndroidMopups : IPopupPlatform
 
     Task<bool> PostAsync(Android.Views.View? nativeView)
     {
-        if (nativeView == null)
+        if (nativeView is null)
         {
             return Task.FromResult(true);
         }
