@@ -21,7 +21,7 @@ public static class MopupService
         {
             IPopupNavigation lazyEvalPopupNavigation = _customNavigation ?? implementation.Value;
 
-            if (lazyEvalPopupNavigation == null)
+            if (lazyEvalPopupNavigation is null)
             {
                 throw NotImplementedInReferenceAssembly();
             }

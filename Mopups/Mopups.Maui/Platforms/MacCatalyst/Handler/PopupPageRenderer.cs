@@ -76,7 +76,7 @@ namespace Mopups.Platforms.MacCatalyst
             {
                 var currentElement = ((PopupPage)Handler.VirtualView);
 
-                if (handler.Handler.PlatformView?.Superview?.Frame == null || currentElement == null)
+                if (handler.Handler.PlatformView?.Superview?.Frame == null || currentElement is null)
                     return;
 
                 var superviewFrame = handler.Handler.PlatformView.Superview.Frame;
@@ -173,7 +173,7 @@ namespace Mopups.Platforms.MacCatalyst
 
         public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations()
         {
-            if ((ChildViewControllers != null) && (ChildViewControllers.Length > 0))
+            if ((ChildViewControllers is not null) && (ChildViewControllers.Length > 0))
             {
                 return ChildViewControllers[0].GetSupportedInterfaceOrientations();
             }
@@ -182,7 +182,7 @@ namespace Mopups.Platforms.MacCatalyst
 
         public override UIInterfaceOrientation PreferredInterfaceOrientationForPresentation()
         {
-            if ((ChildViewControllers != null) && (ChildViewControllers.Length > 0))
+            if ((ChildViewControllers is not null) && (ChildViewControllers.Length > 0))
             {
                 return ChildViewControllers[0].PreferredInterfaceOrientationForPresentation();
             }
@@ -211,7 +211,7 @@ namespace Mopups.Platforms.MacCatalyst
 
         public override bool ShouldAutorotate()
         {
-            if ((ChildViewControllers != null) && (ChildViewControllers.Length > 0))
+            if ((ChildViewControllers is not null) && (ChildViewControllers.Length > 0))
             {
                 return ChildViewControllers[0].ShouldAutorotate();
             }
@@ -220,7 +220,7 @@ namespace Mopups.Platforms.MacCatalyst
 
         public override bool ShouldAutorotateToInterfaceOrientation(UIInterfaceOrientation toInterfaceOrientation)
         {
-            if ((ChildViewControllers != null) && (ChildViewControllers.Length > 0))
+            if ((ChildViewControllers is not null) && (ChildViewControllers.Length > 0))
             {
                 return ChildViewControllers[0].ShouldAutorotateToInterfaceOrientation(toInterfaceOrientation);
             }

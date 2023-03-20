@@ -218,7 +218,7 @@ public partial class PopupPage : ContentPage
         OnAppearingAnimationBegin();
         await OnAppearingAnimationBeginAsync();
 
-        if (IsAnimationEnabled && Animation != null)
+        if (IsAnimationEnabled && Animation is not null)
             await Animation.Appearing(Content, this);
 
         OnAppearingAnimationEnd();
@@ -230,7 +230,7 @@ public partial class PopupPage : ContentPage
         OnDisappearingAnimationBegin();
         await OnDisappearingAnimationBeginAsync();
 
-        if (IsAnimationEnabled && Animation != null)
+        if (IsAnimationEnabled && Animation is not null)
             await Animation.Disappearing(Content, this);
 
         OnDisappearingAnimationEnd();

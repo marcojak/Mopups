@@ -98,7 +98,7 @@ namespace Mopups.Platforms.Windows
 
         private void UpdateElementSize()
         {
-            if (CurrentElement != null)
+            if (CurrentElement is not null)
             {
                 var capturedElement = CurrentElement;
 

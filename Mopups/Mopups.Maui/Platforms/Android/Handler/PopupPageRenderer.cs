@@ -66,7 +66,7 @@ public class PopupPageRenderer : ContentViewGroup
 
             decoreView?.GetWindowVisibleDisplayFrame(visibleRect);
 
-            if (Build.VERSION.SdkInt >= BuildVersionCodes.M && RootWindowInsets != null)
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.M && RootWindowInsets is not null)
             {
                 var h = bottom - top;
 
@@ -86,7 +86,7 @@ public class PopupPageRenderer : ContentViewGroup
                     Bottom = Context.FromPixels(bottomPadding)
                 };
             }
-            else if (Build.VERSION.SdkInt < BuildVersionCodes.M && decoreView != null)
+            else if (Build.VERSION.SdkInt < BuildVersionCodes.M && decoreView is not null)
             {
                 var screenSize = new AndroidGraphics.Point();
                 activity?.WindowManager?.DefaultDisplay?.GetSize(screenSize);
