@@ -6,7 +6,7 @@ using Mopups.Pages;
 
 namespace Mopups.Services;
 
-public class MopupService : IPopupNavigation
+public class PopupNavigation : IPopupNavigation
 {
     private readonly object _locker = new();
 
