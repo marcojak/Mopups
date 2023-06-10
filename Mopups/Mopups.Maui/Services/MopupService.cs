@@ -42,7 +42,7 @@ public static class MopupService
 
     static IPopupNavigation CreatePopupNavigation()
     {
-        return new PopupNavigation();
+        return new MopupService();
     }
 
     internal static Exception NotImplementedInReferenceAssembly() =>
