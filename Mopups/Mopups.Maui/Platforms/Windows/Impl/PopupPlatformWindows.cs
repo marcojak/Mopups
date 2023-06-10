@@ -58,7 +58,7 @@ namespace Mopups.Windows.Implementation
             // Use TOPLATFORM to create your handlers
             // I'd recommend wiring up all your services through ConfigureMopups
             // builder.Services.AddScoped<IPopupPlatform, PopupPlatform>();
-            // builder.Services.AddScoped<IPopupNavigation, PopupNavigation>();
+            // builder.Services.AddScoped<IPopupNavigation, MopupService>();
             // Then you can use contructor resolution instead of singletons
             // But I figured we could do that in a later PR and just work on windows here
 
