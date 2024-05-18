@@ -68,7 +68,7 @@ public class PopupNavigation : IPopupNavigation
             : MainThread.InvokeOnMainThreadAsync(PushPage);
 
         async Task PushPage()
-        {
+        {          
             page.PreparingAnimation();
             await PopupPlatform.AddAsync(page);
 
