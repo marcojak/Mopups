@@ -161,6 +161,6 @@ Upgraded to .NET 8</PackageReleaseNotes>
 	  <AndroidEnableProfiledAot>True</AndroidEnableProfiledAot>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="AsyncAwaitBestPractices" Version="7.0.0" />
+		<PackageReference Include="AsyncAwaitBestPractices" Version="8.0.0" />
 	</ItemGroup>
 </Project>
