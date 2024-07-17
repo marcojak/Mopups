@@ -163,4 +163,9 @@ Upgraded to .NET 8</PackageReleaseNotes>
 	<ItemGroup>
 		<PackageReference Include="AsyncAwaitBestPractices" Version="8.0.0" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Include="Platforms\Windows\Handler\PopupPageHandler.cs" />
+	  <None Include="Platforms\Windows\Handler\PopupPageRenderer.cs" />
+	  <None Include="Platforms\Windows\Impl\PopupPlatformWindows.cs" />
+	</ItemGroup>
 </Project>
